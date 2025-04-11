@@ -97,19 +97,12 @@ def test_model_accuracy():
         X_train, y_train, X_val, y_val, _, _ = load_mnist_from_csv(
             "./mnist_train.csv", "./mnist_test.csv", val_split=0.1
         )
-        
-        # Use a very small subset and minimal training for test speed
-        X_train_small = X_train[:1000]
-        y_train_small = y_train[:1000]
-        X_val_small = X_val[:500]
-        y_val_small = y_val[:500]
-        
+
         # Train model with minimal configuration
         _, val_accuracy = train_mnist_network(
-            X_train_small, y_train_small, X_val_small, y_val_small,
-            num_epochs=5
+            X_train, y_train, X_val, y_val, num_epochs=5
         )
-        
+
         # Assert that validation accuracy is at least 50%
         assert val_accuracy >= 0.5, f"Model accuracy {val_accuracy:.4f} is below the required 50%"
     except FileNotFoundError:
