@@ -89,7 +89,6 @@ def test_dense_layer():
     assert not np.array_equal(original_biases, dense.biases), "Biases were not updated"
 
 
-@pytest.mark.slow
 def test_model_accuracy():
     """Test that the model achieves at least 70% validation accuracy"""
     try:
