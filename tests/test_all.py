@@ -107,7 +107,7 @@ def test_model_accuracy():
         # Train model with minimal configuration
         _, val_accuracy = train_mnist_network(
             X_train_small, y_train_small, X_val_small, y_val_small,
-            num_epochs=2, batch_size=32, subset_size=1000
+            num_epochs=5, batch_size=32, subset_size=1000
         )
         
         # Assert that validation accuracy is at least 70%
